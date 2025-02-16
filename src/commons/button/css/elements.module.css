@@ -1,0 +1,24 @@
+.button {
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  padding: 1.2rem 2rem;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: var(--bold);
+  width: fit-content;
+}
+
+.button_contained {
+  background: linear-gradient(99deg, #236bfe 6.69%, #0d4ed3 80.95%);
+}
+
+.button_outlined {
+  background-color: var(--transparent);
+}
+
+.button_text {
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
