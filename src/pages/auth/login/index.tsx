@@ -1,6 +1,5 @@
-import { Input } from '@/commons/forms';
 import formStyles from '@/styles/forms.module.css';
-import loginStyles from '@/styles/login.module.css';
+import s from './css/elements.module.css';
 import { FormData } from '@/interfaces';
 import { DASHBOARD, EMPLYEE_ROL, SALES, errorMessages } from '@/utils/const';
 import Head from 'next/head';
@@ -9,6 +8,9 @@ import { loginUser } from '@/services';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context';
 import { useForm } from '@/hooks';
+import { Button } from '@/commons/button';
+import { Text } from '@/commons/text';
+import { Input } from '@/commons/input';
 
 const INITIAL_STATE: FormData = {
   email: '',
@@ -54,32 +56,31 @@ const Login = () => {
         <title>Login</title>
       </Head>
 
-      <main className={loginStyles.root}>
-        <header className={loginStyles.header}>
-          <h1>Bienvenido</h1>
-          <p>Ingresa con tu usuario y contraseña</p>
+      <main className={s.main}>
+        <header className={s.header}>
+          <Text as='h1' fontSize={32}>
+            Bienvenido
+          </Text>
+
+          <Text>Ingresa con tu usuario y contraseña</Text>
         </header>
 
         <form className={formStyles.form} onSubmit={onSubmit(handleSubmit)}>
-          <Input
-            label='Correo electrónico'
-            name='email'
-            value={email}
-            onValueChange={onValueChange}
-          />
+          <Input label='Correo electrónico' name='email' value={email} onChange={onValueChange} />
+
           <Input
             label='Contraseña'
             name='password'
             value={password}
-            onValueChange={onValueChange}
+            onChange={onValueChange}
             type='password'
           />
 
-          <button type='submit'>{loading ? 'Ingresando...' : 'Ingresar'}</button>
+          <Button type='submit'>{loading ? 'Ingresando...' : 'Ingresar'}</Button>
 
-          <p className={`${loginStyles.textError} ${Boolean(error) && loginStyles.active}`}>
+          <Text error textAlign='center'>
             {error}
-          </p>
+          </Text>
         </form>
       </main>
     </>
