@@ -3,7 +3,7 @@ import s from '@/styles/dashboard.module.css';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Chevron, Menu } from '@/commons/icons';
-import { useUI, useUser } from '@/context';
+import { useUI, useUser } from '@/providers';
 import { Profile } from '@/components';
 import { LOGIN } from '@/utils/const';
 

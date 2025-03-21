@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import s from '@/styles/profile.module.css';
-import { useUser } from '@/context';
+import { useUser } from '@/providers';
 
 const Perfil = () => {
   const { user } = useUser();

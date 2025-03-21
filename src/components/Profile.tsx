@@ -1,5 +1,5 @@
 import { Logout, User } from '@/commons/icons';
-import { useUser } from '@/context';
+import { useUser } from '@/providers';
 import { LOGIN, PROFILE } from '@/utils/const';
 import { useOpenModal } from '@/hooks';
 import { logoutUser } from '@/services';

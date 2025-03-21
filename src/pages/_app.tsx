@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import '@/styles/globals.css';
 import 'moment/locale/es';
-import { UiProvider, UserProvider } from '@/context';
+import { UiProvider, UserProvider } from '@/providers';
 import {
   Chart as ChartJS,
   CategoryScale,

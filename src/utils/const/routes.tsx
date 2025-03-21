@@ -1,6 +1,6 @@
 import { BookContent, Clock, Gear, Home, PurchaseTag } from '@/commons/icons';
 
-const LOGIN = '/login';
+const LOGIN = '/auth/login';
 const DASHBOARD = '/';
 const ADMINISTRATION = '/administracion';
 const INVENTORY = '/inventario';

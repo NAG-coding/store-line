@@ -6,7 +6,7 @@ import Head from 'next/head';
 import { validateUserData } from '@/utils/helpers';
 import { loginUser } from '@/services';
 import { useRouter } from 'next/navigation';
-import { useUser } from '@/context';
+import { useUser } from '@/providers';
 import { useForm } from '@/hooks';
 import { Button } from '@/commons/button';
 import { Text } from '@/commons/text';
@@ -35,7 +35,8 @@ const Login = () => {
     setError('');
 
     try {
-      await loginUser(data);
+      const r = await loginUser(data);
+      r.user.getIdToken;
     } catch (error) {
       setError(errorMessages.invalidCredentials);
     } finally {
@@ -44,11 +45,11 @@ const Login = () => {
     }
   };
 
-  if (user) {
-    const route = user.role === EMPLYEE_ROL ? SALES : DASHBOARD;
-    push(route);
-    return null;
-  }
+  // if (user) {
+  //   const route = user.role === EMPLYEE_ROL ? SALES : DASHBOARD;
+  //   push(route);
+  //   return null;
+  // }
 
   return (
     <>
@@ -76,7 +77,9 @@ const Login = () => {
             type='password'
           />
 
-          <Button type='submit'>{loading ? 'Ingresando...' : 'Ingresar'}</Button>
+          <Button type='submit' loading={loading}>
+            Ingresar
+          </Button>
 
           <Text error textAlign='center'>
             {error}
